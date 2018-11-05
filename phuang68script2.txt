@@ -1,5 +1,5 @@
 -- Load data to product
-USE 250986943assign2db;
+USE phuang68assign2db;
 LOAD DATA LOCAL INFILE "loaddatafall2018.txt" INTO TABLE product FIELDS TERMINATED BY ',' LINES TERMINATED BY'\n';
 SELECT * FROM product;
 

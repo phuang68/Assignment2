@@ -1,4 +1,4 @@
-USE 250986943assign2db;
+USE phuang68assign2db;
 
 -- Show the data in all your tables before doing the next steps.
 SELECT * FROM agent;

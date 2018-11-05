@@ -1,4 +1,4 @@
-USE 250986943assign2db;
+USE phuang68assign2db;
 
 -- Query 1
 SELECT description FROM product;

@@ -2,9 +2,9 @@
 -- 250986943, Pu Huang
 -- Build the database
 SHOW DATABASES;
-DROP DATABASE IF EXISTS 250986943assign2db;
-CREATE DATABASE 250986943assign2db;
-USE 250986943assign2db;
+DROP DATABASE IF EXISTS phuang68assign2db;
+CREATE DATABASE phuang68assign2db;
+USE phuang68assign2db;
 
 -- For TA to access the database
 GRANT USAGE ON *.* TO 'ta'@'localhost';
