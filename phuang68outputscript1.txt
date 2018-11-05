@@ -1,0 +1,74 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SHOW DATABASES
+--------------
+
+Database
+information_schema
+250986943assign2db
+flipclass3
+myfirstdb
+mysql
+performance_schema
+--------------
+DROP DATABASE IF EXISTS phuang68assign2db
+--------------
+
+--------------
+CREATE DATABASE phuang68assign2db
+--------------
+
+--------------
+GRANT USAGE ON *.* TO 'ta'@'localhost'
+--------------
+
+--------------
+DROP USER 'ta'@'localhost'
+--------------
+
+--------------
+CREATE USER 'ta'@'localhost' IDENTIFIED BY 'cs3319'
+--------------
+
+--------------
+GRANT ALL PRIVILEGES ON yourwesternuseridassign2db.* TO 'ta'@'localhost'
+--------------
+
+--------------
+FLUSH PRIVILEGES
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+--------------
+CREATE TABLE agent (agentid CHAR(2) NOT NULL, firstname VARCHAR(30), lastname VARCHAR(30), city  VARCHAR(30), commission INT, PRIMARY KEY (agentid))
+--------------
+
+--------------
+CREATE TABLE customer (customerid CHAR(2) NOT NULL, firstname VARCHAR(30), lastname VARCHAR(30), city  VARCHAR(30), phonenum VARCHAR(20), PRIMARY KEY (customerid))
+--------------
+
+--------------
+CREATE TABLE product (productid CHAR(2) NOT NULL, description VARCHAR(20), cost FLOAT(5,2), quantity  INT, PRIMARY KEY (productid))
+--------------
+
+--------------
+CREATE TABLE dealingwith (agentid CHAR(2) NOT NULL, agentfname VARCHAR(30), agentlname VARCHAR(30), customerid CHAR(2) NOT NULL,  customerfname VARCHAR(30),  customerlname VARCHAR(30),FOREIGN KEY(customerid) REFERENCES customer(customerid), FOREIGN KEY(agentid) REFERENCES agent(agentid) ON DELETE RESTRICT, PRIMARY KEY (agentid, customerid))
+--------------
+
+--------------
+CREATE TABLE purchasing (customerid CHAR(2) NOT NULL, productid CHAR(2) NOT NULL, firstname VARCHAR(30), description VARCHAR(20), quantity  INT, FOREIGN KEY(customerid) REFERENCES customer(customerid) ON DELETE CASCADE, FOREIGN KEY(productid) REFERENCES product(productid), PRIMARY KEY (productid, customerid))
+--------------
+
+--------------
+SHOW TABLES
+--------------
+
+Tables_in_phuang68assign2db
+agent
+customer
+dealingwith
+product
+purchasing

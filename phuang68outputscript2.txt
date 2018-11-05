@@ -1,0 +1,249 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA LOCAL INFILE "loaddatafall2018.txt" INTO TABLE product FIELDS TERMINATED BY ',' LINES TERMINATED BY'\n'
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+productid	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+INSERT INTO product (productid, description, cost, quantity) VALUES (66,"Elbow pads",14.25,120)
+--------------
+
+--------------
+INSERT INTO product (productid, description, cost, quantity) VALUES (18, "White mugs", 13.54, 800)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (99, "Hugh", "Grant", "Springfield", 16)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (22, "Courtney", "Cox", "New York", 25)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (66, "Rosie", "ODonnell", "Ottawa", 100)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (33, "David", "Letterman", "Bedrock", 100)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (11, "Regis", "Philbin",  "Boston", 33)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (12, "Rosie", "Cox",  "Ottawa", 50)
+--------------
+
+--------------
+INSERT INTO agent (agentid, firstname, lastname, city, commission) VALUES (18, "Pu", "Huang", "Shenzhen", 100)
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (21, "Homer", "Simpson", "Springfield", "686-8956")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (31, "Sideshow", "Bob", "Springfield", "686-5555")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (12, "Monty", "Burns", "Springfield", "789-0000")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (15, "Fred", "Flintstone", "Bedrock", "777-2345")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (13, "Super", "Man", "Kypto", "888-1234")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (10, "Barney", "Rubble", "Bedrock", "777-1234")
+--------------
+
+--------------
+INSERT INTO customer (customerid, firstname, lastname, city,  phonenum) VALUES (14, "Peter", "Griffens", "Providence", "987-4567")
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (21,"Homer", 99, "Helmets", 20)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (21,"Homer", 12, "Socks", 14)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (21,"Homer", 66, "Elbow Pads", 10)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (31,"Sideshow", 99, "Helmets", 1)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (31,"Sideshow", 12, "Socks", 2)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (31,"Sideshow", 78, "Knee Pads", 4)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (31,"Sideshow", 66, "Elbow Pads", 2)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (15,"Fred", 66, "Elbow Pads", 2)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (15,"Fred", 78, "Knee Pads", 2)
+--------------
+
+--------------
+INSERT INTO purchasing (customerid, firstname, productid, description, quantity) VALUES (14,"Peter", 66, "Elbow Pads", 19)
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname, customerid, customerfname, customerlname) VALUES (99, "Hugh", "Grant", 21, "Homer", "Simpson")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname,  customerid, customerfname, customerlname) VALUES (99, "Hugh"," Grant", 12, "Monty", "Burns")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname, customerid, customerfname, customerlname) VALUES (99, "Hugh","Grant", 14, "Peter", "Griffens")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname,  customerid, customerfname, customerlname) VALUES (33, "David","Letterman", 13, "Super", "Man")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname,  customerid, customerfname, customerlname) VALUES (11, "Regis","Philbin", 10, "Barney", "Rubble")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname, customerid, customerfname, customerlname) VALUES (11, "Regis","Philbin", 15, "Fred", "Flintstone")
+--------------
+
+--------------
+INSERT INTO dealingwith(agentid, agentfname, agentlname,  customerid, customerfname, customerlname) VALUES (66, "Rosie","O'Donnell", 31, "Sideshow", "Bob")
+--------------
+
+--------------
+SELECT * FROM product
+--------------
+
+productid	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+18	White mugs	13.54	800
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+SELECT * FROM agent
+--------------
+
+agentid	firstname	lastname	city	commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+18	Pu	Huang	Shenzhen	100
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM customer
+--------------
+
+customerid	firstname	lastname	city	phonenum
+10	Barney	Rubble	Bedrock	777-1234
+12	Monty	Burns	Springfield	789-0000
+13	Super	Man	Kypto	888-1234
+14	Peter	Griffens	Providence	987-4567
+15	Fred	Flintstone	Bedrock	777-2345
+21	Homer	Simpson	Springfield	686-8956
+31	Sideshow	Bob	Springfield	686-5555
+--------------
+SELECT * FROM purchasing
+--------------
+
+customerid	productid	firstname	description	quantity
+21	12	Homer	Socks	14
+31	12	Sideshow	Socks	2
+14	66	Peter	Elbow Pads	19
+15	66	Fred	Elbow Pads	2
+21	66	Homer	Elbow Pads	10
+31	66	Sideshow	Elbow Pads	2
+15	78	Fred	Knee Pads	2
+31	78	Sideshow	Knee Pads	4
+21	99	Homer	Helmets	20
+31	99	Sideshow	Helmets	1
+--------------
+SELECT * FROM dealingwith
+--------------
+
+agentid	agentfname	agentlname	customerid	customerfname	customerlname
+11	Regis	Philbin	10	Barney	Rubble
+11	Regis	Philbin	15	Fred	Flintstone
+33	David	Letterman	13	Super	Man
+66	Rosie	O'Donnell	31	Sideshow	Bob
+99	Hugh	 Grant	12	Monty	Burns
+99	Hugh	Grant	14	Peter	Griffens
+99	Hugh	Grant	21	Homer	Simpson
+--------------
+UPDATE customer SET  firstname = 'Wonder', lastname = 'Woman' WHERE firstname = 'Super' AND lastname ='Man'
+--------------
+
+--------------
+UPDATE purchasing SET quantity = 5 WHERE firstname = 'Sideshow'
+--------------
+
+--------------
+UPDATE customer SET city = 'Boston' WHERE customerid IN (SELECT customerid FROM dealingwith WHERE agentfname = 'Regis')
+--------------
+
+--------------
+SELECT * FROM customer
+--------------
+
+customerid	firstname	lastname	city	phonenum
+10	Barney	Rubble	Boston	777-1234
+12	Monty	Burns	Springfield	789-0000
+13	Wonder	Woman	Kypto	888-1234
+14	Peter	Griffens	Providence	987-4567
+15	Fred	Flintstone	Boston	777-2345
+21	Homer	Simpson	Springfield	686-8956
+31	Sideshow	Bob	Springfield	686-5555
+--------------
+SELECT * FROM purchasing
+--------------
+
+customerid	productid	firstname	description	quantity
+21	12	Homer	Socks	14
+31	12	Sideshow	Socks	5
+14	66	Peter	Elbow Pads	19
+15	66	Fred	Elbow Pads	2
+21	66	Homer	Elbow Pads	10
+31	66	Sideshow	Elbow Pads	5
+15	78	Fred	Knee Pads	2
+31	78	Sideshow	Knee Pads	5
+21	99	Homer	Helmets	20
+31	99	Sideshow	Helmets	5

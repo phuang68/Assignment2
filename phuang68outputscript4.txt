@@ -1,0 +1,111 @@
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1451 (23000) at line 27: Cannot delete or update a parent row: a foreign key constraint fails (`phuang68assign2db`.`dealingwith`, CONSTRAINT `dealingwith_ibfk_2` FOREIGN KEY (`agentid`) REFERENCES `agent` (`agentid`))
+--------------
+SELECT * FROM agent
+--------------
+
+agentid	firstname	lastname	city	commission
+11	Regis	Philbin	Boston	33
+12	Rosie	Cox	Ottawa	50
+18	Pu	Huang	Shenzhen	100
+22	Courtney	Cox	New York	25
+33	David	Letterman	Bedrock	100
+66	Rosie	ODonnell	Ottawa	100
+99	Hugh	Grant	Springfield	16
+--------------
+SELECT * FROM customer
+--------------
+
+customerid	firstname	lastname	city	phonenum
+10	Barney	Rubble	Boston	777-1234
+12	Monty	Burns	Springfield	789-0000
+13	Wonder	Woman	Kypto	888-1234
+14	Peter	Griffens	Providence	987-4567
+15	Fred	Flintstone	Boston	777-2345
+21	Homer	Simpson	Springfield	686-8956
+31	Sideshow	Bob	Springfield	686-5555
+--------------
+SELECT * FROM product
+--------------
+
+productid	description	cost	quantity
+11	Bike	150.00	200
+12	Socks	2.00	100
+18	White mugs	13.54	800
+66	Elbow pads	14.25	120
+78	Knee Pads	12.15	70
+88	Roller Blades	75.00	89
+99	Helmet	29.00	30
+--------------
+SELECT * FROM purchasing
+--------------
+
+customerid	productid	firstname	description	quantity
+21	12	Homer	Socks	14
+31	12	Sideshow	Socks	5
+14	66	Peter	Elbow Pads	19
+15	66	Fred	Elbow Pads	2
+21	66	Homer	Elbow Pads	10
+31	66	Sideshow	Elbow Pads	5
+15	78	Fred	Knee Pads	2
+31	78	Sideshow	Knee Pads	5
+21	99	Homer	Helmets	20
+31	99	Sideshow	Helmets	5
+--------------
+SELECT * FROM dealingwith
+--------------
+
+agentid	agentfname	agentlname	customerid	customerfname	customerlname
+11	Regis	Philbin	10	Barney	Rubble
+11	Regis	Philbin	15	Fred	Flintstone
+33	David	Letterman	13	Super	Man
+66	Rosie	O'Donnell	31	Sideshow	Bob
+99	Hugh	 Grant	12	Monty	Burns
+99	Hugh	Grant	14	Peter	Griffens
+99	Hugh	Grant	21	Homer	Simpson
+--------------
+CREATE VIEW Q1 AS SELECT customer.firstname, customer.lastname, product.description, purchasing.quantity, product.cost * purchasing.quantity AS totalprice FROM customer, purchasing, product WHERE purchasing.productid = product.productid AND purchasing.customerid = customer.customerid ORDER BY customer.lastname
+--------------
+
+--------------
+SELECT * FROM Q1
+--------------
+
+firstname	lastname	description	quantity	totalprice
+Sideshow	Bob	Socks	5	10.00
+Sideshow	Bob	Elbow pads	5	71.25
+Sideshow	Bob	Knee Pads	5	60.75
+Sideshow	Bob	Helmet	5	145.00
+Fred	Flintstone	Elbow pads	2	28.50
+Fred	Flintstone	Knee Pads	2	24.30
+Peter	Griffens	Elbow pads	19	270.75
+Homer	Simpson	Socks	14	28.00
+Homer	Simpson	Elbow pads	10	142.50
+Homer	Simpson	Helmet	20	580.00
+--------------
+SELECT * FROM Q1 WHERE totalprice > 100
+--------------
+
+firstname	lastname	description	quantity	totalprice
+Sideshow	Bob	Helmet	5	145.00
+Peter	Griffens	Elbow pads	19	270.75
+Homer	Simpson	Elbow pads	10	142.50
+Homer	Simpson	Helmet	20	580.00
+--------------
+SELECT * FROM product WHERE description = 'White mugs'
+--------------
+
+productid	description	cost	quantity
+18	White mugs	13.54	800
+--------------
+DELETE FROM product WHERE description = 'White mugs'
+--------------
+
+--------------
+SELECT * FROM product WHERE description = 'White mugs'
+--------------
+
+--------------
+DELETE FROM agent WHERE city = 'Springfield'
+--------------
+
