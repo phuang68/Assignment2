@@ -1,0 +1,29 @@
+USE 250986943assign2db;
+
+-- Show the data in all your tables before doing the next steps.
+SELECT * FROM agent;
+SELECT * FROM customer;
+SELECT * FROM product;
+SELECT * FROM purchasing;
+SELECT * FROM dealingwith;
+
+-- Create a view that shows the customer first name and last name, the description of the products they have bought, the quantity of the products they have bought, the price of the product and a total cost to purchase that many items of each product. Order the view by the last name.
+CREATE VIEW Q1 AS SELECT customer.firstname, customer.lastname, product.description, purchasing.quantity, product.cost * purchasing.quantity AS totalprice FROM customer, purchasing, product WHERE purchasing.productid = product.productid AND purchasing.customerid = customer.customerid ORDER BY customer.lastname;
+
+-- Prove that the view works by selecting all the rows from it. 
+SELECT * FROM Q1;
+
+-- Now select only the rows from the view (all columns from the view) where customers spent more than 100 dollars. 
+SELECT * FROM Q1 WHERE totalprice > 100;
+
+-- Showing product table before deleting
+SELECT * FROM product WHERE description = 'White mugs';
+-- Delete the product that you made up using your product's description.
+DELETE FROM product WHERE description = 'White mugs';
+-- Prove that the delete worked.
+SELECT * FROM product WHERE description = 'White mugs';
+
+-- Delete all agents who are from Springfield.  
+DELETE FROM agent WHERE city = 'Springfield';
+
+-- The row for the agents from the city of Springfield was not deleted because the agents from Springfield are refered as foreign key in the dealingwith table on restrict.

@@ -1,0 +1,46 @@
+USE 250986943assign2db;
+
+-- Query 1
+SELECT description FROM product;
+
+-- Query 2
+SELECT DISTINCT city FROM customer;
+
+-- Query 3
+SELECT * FROM agent ORDER BY city;
+
+-- Query 4
+SELECT firstname, lastname FROM customer WHERE city = 'Springfield';
+
+-- Query 5
+SELECT customerlname FROM dealingwith WHERE agentfname = 'Regis';
+
+-- Query 6
+SELECT description FROM product WHERE description LIKE '%pad%' OR description LIKE '%Pad%';
+
+-- Query 7
+SELECT customer.lastname, purchasing.description, purchasing.quantity FROM customer, purchasing WHERE purchasing.customerid = customer.customerid;
+
+-- Query 8
+SELECT SUM(purchasing.quantity) AS 'Homer''s Total Purchases' FROM purchasing WHERE firstname = 'Homer';
+
+-- Query 9
+SELECT customer.firstname, customer.lastname, SUM(purchasing.quantity) FROM purchasing, customer WHERE customer.customerid = purchasing.customerid GROUP BY customer.customerid;
+
+-- Query 10
+SELECT description,  quantity AS 'quantity on hand' FROM product WHERE productid NOT IN (SELECT productid FROM purchasing);
+
+-- Query 11
+SELECT description, quantity FROM product WHERE productid NOT IN (SELECT purchasing.productid FROM purchasing, customer WHERE purchasing.customerid = customer.customerid AND customer.firstname = 'Fred' AND customer.lastname = 'Flintstone');
+
+-- Query 12
+SELECT agent.firstname AS 'agentfirstname', agent.lastname AS 'agentlastname', customer.firstname AS 'customerfirstname', customer.lastname AS 'customerlastname' FROM agent, customer WHERE customer.city = agent.city;
+
+-- Query 13
+SELECT SUM(quantity) AS 'Total Knee Pads Purchased' FROM purchasing WHERE productid = 78;
+
+-- Query 14
+SELECT description FROM product WHERE productid = (SELECT productid FROM (SELECT productid, count(customerid) AS numofpurchasers FROM purchasing GROUP BY productid) AS t WHERE numofpurchasers > 3);
+
+-- Query 15
+SELECT firstname, lastname FROM agent WHERE agentid IN (SELECT agentid FROM dealingwith WHERE customerid IN (SELECT customerid FROM purchasing WHERE productid = 78));
